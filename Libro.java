@@ -84,7 +84,11 @@ public class Libro {
      * Devuelve detalles
      */
     public String getDetalles(){
-        String devolverDetalles = ("Título: "+ titulo+ " ;Autor: " + autor+ " ;Número de páginas: "+ numeroPaginas+ "Numero de referencia" + numeroReferencia);
+        String elNumeroReferencia = numeroReferencia;
+        if (numeroReferencia == ("")){
+            elNumeroReferencia = "ZZZ";
+        }
+        String devolverDetalles = ("Título: "+ titulo+ " ;Autor: " + autor+ " ;Número de páginas: "+ numeroPaginas+ ";Numero de referencia:" + elNumeroReferencia);
         return devolverDetalles;
     }
     
@@ -93,11 +97,8 @@ public class Libro {
      */
     public void setReferencia(String numeroDeReferencia){
         numeroReferencia = numeroDeReferencia;
-        if (numeroReferencia.length() < 3){
+        if (numeroDeReferencia.length() < 3){
             System.out.println("ERROR DE NUMERO DE REFERENCIA");
-        }
-        else {
-            numeroReferencia = numeroDeReferencia;
         }
     }
     
